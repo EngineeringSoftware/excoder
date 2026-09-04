@@ -1,0 +1,1 @@
+Here are the signatures of member variables and methods for class `{}`, the class where our MUT is defined, along with its parent classes (including protected and public members). These represent the methods and variables you can access or call within the MUT:

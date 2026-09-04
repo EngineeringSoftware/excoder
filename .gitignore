@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.python-version.local
+pyrightconfig.json
+
+# Editors / OS
+*~
+\#*\#
+.DS_Store
+.idea/
+.vscode/
+.settings/
+.debug-config.el
+*.eld
+
+# Environment
+.env
+.env.local
+.envrc.local
+
+# Pipeline scratch.  _work holds the mined datasets, the cloned subject
+# projects, their build output and the results -- none of it version
+# controlled, and all of it created on demand.  Set it up before the first
+# run; see the README.
+_work/
+
+# Third-party tool jars, fetched by the pipelines.
+jars/
+
+# Large local archives
+*.tar.gz
+*.tar.zst
+*.log
+
+# Agent session state
+.claude/

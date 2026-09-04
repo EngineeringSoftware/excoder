@@ -1,0 +1,1 @@
+Additionally we commented at each line that is currently covered by an EBT, indicating which line is covered by which EBT. This information can be useful to determine the lines where each throw statement could be placed.

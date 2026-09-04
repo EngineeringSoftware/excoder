@@ -1,0 +1,22 @@
+services:
+  excoder:
+    build:
+      context: .
+    volumes:
+      - .:/workspace
+      - downloads:/workspace/_work/downloads
+      - gguf_models:/home/etest/gguf_models
+      - ~/.cache/huggingface:/home/etest/.cache/huggingface
+    working_dir: /workspace
+    tty: true
+    stdin_open: true
+    network_mode: "host"
+    environment:
+      - AZURE_END_POINT=${AZURE_END_POINT}
+      - AZURE_API_KEY=${AZURE_API_KEY}
+volumes:
+  # Where the GGUF weights land ($GGUF_DIR in the image); the container runs as
+  # the unprivileged `etest` user, so the volume is mounted under its home.
+  # run_experiment_pipeline.sh --download-models fills it.
+  gguf_models: {}
+  downloads: {}

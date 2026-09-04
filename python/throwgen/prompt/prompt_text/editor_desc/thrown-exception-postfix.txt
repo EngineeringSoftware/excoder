@@ -1,0 +1,1 @@
+While running each EBT, I observed some exceptions are thrown. We commented on each line where a exception is thrown while running EBT. You need to add try catch block to handle it and throw the excpetion as specified by the EBTs.

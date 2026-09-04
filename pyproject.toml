@@ -1,0 +1,69 @@
+[project]
+name = "excoder"
+version = "1.0.0"
+description = "ExCoder: retrofitting Java code to raise exceptions, using LLMs guided by static and dynamic analysis (ISSRE 2026)"
+readme = "README.md"
+requires-python = ">=3.11"
+
+# Only what the four pipelines in scripts/ actually import.  The versions are
+# the ones the paper's results were produced with; loosen them at your own risk,
+# since numpy/pandas in particular affect how the statistics are aggregated.
+dependencies = [
+    # dataset handling, CLIs and utilities
+    "seutil>=0.8.12",
+    "jsonargparse>=4.36.0",
+    "tqdm>=4.67.1",
+    "requests>=2.32.3",
+    "typing-extensions>=4.12.2",
+    # Java parsing / analysis
+    "javalang~=0.13.0",
+    "tree-sitter==0.24.0",
+    "tree-sitter-java==0.23.0",
+    "xmltodict>=0.14.2",
+    # numerics, statistics and figures
+    "numpy~=1.25.0",
+    "pandas~=2.1.0",
+    "scipy>=1.15.1",
+    "matplotlib>=3.10.0",
+    "matplotlib-venn>=1.1.2",
+    # LLM backends: llama.cpp is driven through the external `llama-server`
+    # binary, so only the tokenizer and the weight download are Python-side.
+    "transformers>=4.50.0",
+    "huggingface-hub>=0.28.1",
+    "azure-ai-inference>=1.0.0b9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.6.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "python" }
+
+[tool.setuptools.packages.find]
+where = ["python"]
+include = ["throwgen*", "etestgen*"]
+
+[tool.pyright]
+include = ["./python"]
+typeCheckingMode = "basic"
+reportUnusedCallResult = "none"
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "I",   # isort
+]
+ignore = ["I001"]

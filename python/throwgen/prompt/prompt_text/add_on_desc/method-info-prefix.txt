@@ -1,0 +1,1 @@
+Here are the signature of public variables and methods defined in some classes that could be the parameter type or return type of the MUT which may be useful to you.

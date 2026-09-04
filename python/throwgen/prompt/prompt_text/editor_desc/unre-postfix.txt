@@ -1,0 +1,1 @@
+In the above code, we have commented on each line where uncaught exceptions are thrown, indicating the specific exception types. These exceptions must be handled with try-catch blocks. You MUST NOT add any additional throw clause in the method declaration.
